@@ -31,6 +31,8 @@ format:
     link-citations: true
     code-tools: true
     code-link: true
+  pdf:
+    pdf-engine: xelatex
   titlepage-pdf:
     titlepage: formal
     documentclass: scrbook

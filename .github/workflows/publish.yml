@@ -29,10 +29,10 @@ jobs:
       - name: Install R packages
         uses: r-lib/actions/setup-r-dependencies@v2
         with:
-        extra-packages: |
+          extra-packages: |
             any::duckdb
             ohdsi/omock
-        needs: website
+          needs: website
           
       - name: Install LaTeX (TinyTeX)
         uses: r-lib/actions/setup-tinytex@v2
