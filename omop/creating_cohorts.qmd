@@ -240,7 +240,7 @@ We can visualize the attrition with the CohortCharacteristics package. We can fi
 
 ```{r, warning=FALSE, message=FALSE}
 attrition_summary <- summariseCohortAttrition(cohort = cdm$covid)
-tableCohortAttrition(attrition_summary)
+plotCohortAttrition(attrition_summary)
 ```
 
 ::: {.callout-tip collapse="true"}

@@ -12,7 +12,7 @@
 
 We've written this book for anyone interested in working with Observational Medical Outcomes Partnership (OMOP) Common Data Model (CDM) instances using a tidyverse style approach. That is, human centered, consistent, composable, and inclusive (see [Tidy design principles](https://design.tidyverse.org/unifying.html) for more details).
 
-New to R? We recommend you take a look at [R for data science](https://r4ds.had.co.nz/) before reading this book. We assume that you have [R](https://cran.r-project.org) installed together with an adequate Integrated Development Environment (IDE) such as [RStudio](https://posit.co/download/rstudio-desktop/) or [Positron](https://positron.posit.co). See this [tutorial](https://rstudio-education.github.io/hopr/starting.html) if you need guidance on how to get started. The book uses multiple packages that you will need to install. See the list of packages used in @sec-r_packages.
+New to R? We recommend you take a look at [R for data science](https://r4ds.had.co.nz/) before reading this book. We assume that you have [R](https://cran.r-project.org) installed together with an adequate Integrated Development Environment (IDE) such as [RStudio](https://posit.co/download/rstudio-desktop/) or [Positron](https://positron.posit.co). See this [tutorial](https://rstudio-education.github.io/hopr/starting.html) if you need guidance on how to get started. The book uses multiple packages that you will need to install (see the list below).
 
 New to databases? We recommend you take a look at some web tutorials on SQL, such as [SQLBolt](https://sqlbolt.com/) or [SQLZoo](https://www.sqlzoo.net/wiki/SQL_Tutorial) to have a basic understanding of how databases work.
 
