@@ -28,6 +28,7 @@ library(omopgenerics)
 library(CohortConstructor)
 library(CohortCharacteristics)
 library(dplyr)
+library(flextable)
 
 cdm <- mockCdmFromDataset(datasetName = "synthea-covid19-10k", source = "duckdb")
 ```
@@ -240,7 +241,8 @@ We can visualize the attrition with the CohortCharacteristics package. We can fi
 
 ```{r, warning=FALSE, message=FALSE}
 attrition_summary <- summariseCohortAttrition(cohort = cdm$covid)
-plotCohortAttrition(attrition_summary)
+tableCohortAttrition(attrition_summary, 
+                     type = "flextable")
 ```
 
 ::: {.callout-tip collapse="true"}
