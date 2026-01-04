@@ -33,6 +33,10 @@ format:
     code-link: true
   pdf:
     pdf-engine: xelatex
+    keep-tex: true
+    include-in-header:
+      text: |
+        \usepackage{fontawesome5}
   titlepage-pdf:
     titlepage: formal
     documentclass: scrbook

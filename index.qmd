@@ -85,7 +85,11 @@ explicitPkgs |>
   dplyr::bind_rows() |>
   dplyr::arrange(Package) |>
   gt::gt() |>
-  gt::fmt_markdown("Link")
+  gt::fmt_markdown("Link") |> 
+  gt::tab_options(
+    table.width = gt::pct(100),
+    column_labels.font.weight = "bold"
+  )
 ```
 
 Note: we only included the packages called explicitly in the book.
