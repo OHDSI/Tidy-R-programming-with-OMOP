@@ -24,20 +24,25 @@ jobs:
         uses: r-lib/actions/setup-r@v2
         with:
           r-version: '4.4.1'
+          use-public-rspm: true
         
       - name: Install R packages
         uses: r-lib/actions/setup-r-dependencies@v2
         with:
+          extra-packages: |
+            any::duckdb
+            ohdsi/omock
           needs: website
-          
-      - name: Install dev omock
-        shell: Rscript {0}
-        run: |
-          install.packages("pak")
-          pak::pkg_install("ohdsi/omock")
           
       - name: Install LaTeX (TinyTeX)
         uses: r-lib/actions/setup-tinytex@v2
+        
+      - name: Install Microsoft Fonts (Arial)
+        run: |
+          sudo apt-get update
+          echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true" | sudo debconf-set-selections
+          sudo apt-get install -y ttf-mscorefonts-installer
+          sudo fc-cache -f -v
       
       - name: Create directiy to download data
         run: |

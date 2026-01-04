@@ -121,6 +121,7 @@ first_observation_period <- cdm$observation_period |>
 ```
 
 Now we can add this to the person table to make sure that all individuals defined in the observation period table are also defined the person table. Later we can extract the *observation_period_start_year* and count the number of records associated in each year:
+
 ```{r}
 first_records_per_year <- cdm$person |>
   left_join(first_observation_period, by = "person_id") |>
@@ -242,25 +243,26 @@ grouped_summary |>
 
 ## The **OmopSketch** package
 
-The [**OmopSketch**](https://OHDSI.github.io/OmopSketch/) R package aims to characterise and visualise data held in an OMOP CDM instance to help us asses if the data can be used to answer a specific clinical research question. Saving us the need to write custom queries like those above,  the package contains various data characterisation functions. For example, we can use it to quickly summarise and visualise the observation period table:
+The [**OmopSketch**](https://OHDSI.github.io/OmopSketch/) R package aims to characterise and visualise data held in an OMOP CDM instance to help us asses if the data can be used to answer a specific clinical research question. Saving us the need to write custom queries like those above, the package contains various data characterisation functions. For example, we can use it to quickly summarise and visualise the observation period table:
 
 ```{r}
 result <- summariseObservationPeriod(cdm$observation_period)
 tableObservationPeriod(result = result)
 ```
 
-With this table we can see that only one observation period is defined by person and that individuals have a median follow up of ~ 9 years.
+With this table we can see that only one observation period is defined by person and that individuals have a median follow up of \~ 9 years.
 
 We can also visualise how many individuals are in observation per year:
 
 ```{r, message=FALSE, warning=FALSE}
-result <- summariseInObservation(
-  cdm$observation_period,
+result <- summariseTrend(cdm = cdm, 
+                         episode = "observation_period",
   interval = "years",
   output = "person",
   dateRange = c("2000-01-01", "2023-12-31")
 )
-plotInObservation(result = result) +
+plotTrend(result = result, 
+          facet = NULL) +
   ylim(0, NA)
 ```
 
@@ -310,4 +312,4 @@ cdmDisconnect(cdm)
 
 ## Further reading
 
-- Alcalde-Herraiz M, Lopez-Guell K, Rowlands E, Campanile C, Burn E, Català M (2025). *OmopSketch: Characterise Tables of an OMOP Common Data Model Instance*. R package version 0.5.1, <https://OHDSI.github.io/OmopSketch/>.
+-   Alcalde-Herraiz M, Lopez-Guell K, Rowlands E, Campanile C, Burn E, Català M (2025). *OmopSketch: Characterise Tables of an OMOP Common Data Model Instance*. R package version 0.5.1, <https://OHDSI.github.io/OmopSketch/>.
